@@ -6,12 +6,14 @@ import { v4 as uuidv4 } from "uuid";
 
 export  async function POST(req: Request) {
 
-    console.log(`insdie POST`);
+    console.log(`insdie server api POST`);
     try{
         const { name, imageUrl} = await req.json();
+        // const reqq = await req.json();
+        // console.log(`req ----`, reqq);
         console.log("name= ", name, " imageUrl= ", imageUrl);
         const profile = await currentProfile();
-        console.log("profile = ", profile);
+        // console.log("profile = ", profile);
         if(!profile) return new NextResponse("Unauthorized", {status: 401});
 
         const server = await db.server.create({

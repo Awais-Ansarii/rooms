@@ -49,7 +49,7 @@ export async function DELETE(
     const { serverId } = resolvedParams;
     // const { serverId } = params; // Destructure serverId directly from params
     // const { name, imageUrl } = await req.json();
-    console.log(`param***`, serverId);
+    // console.log(`param***`, serverId);
     const profile = await currentProfile();
     if (!profile) {
       return new NextResponse("Unauthorized", { status: 401 });

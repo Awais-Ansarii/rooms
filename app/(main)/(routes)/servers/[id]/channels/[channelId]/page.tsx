@@ -19,8 +19,7 @@ const Page = async ({ params }: ChannelIDPageProps) => {
   const resolvedParams = await params;
 
   const { id, channelId } = resolvedParams;
-  console.log(`id==`, id);
-  console.log(`channelId==`, channelId);
+  
   const { userId, redirectToSignIn } = await auth();
   const profile = await currentProfile();
   if (!profile) {

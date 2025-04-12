@@ -11,7 +11,7 @@ interface ServerIDPageProps {
 const ServerIDPage = async ({ params }: ServerIDPageProps) => {
   const resolvedParams = await params;
   const { id } = resolvedParams;
-  console.log(`param==`, id);
+
   const profile = await currentProfile();
   const { userId, redirectToSignIn } = await auth();
   if (!profile) {
@@ -40,7 +40,7 @@ const ServerIDPage = async ({ params }: ServerIDPageProps) => {
   });
 
   const initialChannel = server?.channels?.[0];
-  console.log(`intiialChannel==`, initialChannel);
+  
 
   if (initialChannel?.name.toLocaleLowerCase() !== "general") {
     console.log(`inside if not general`);

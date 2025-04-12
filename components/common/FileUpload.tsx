@@ -12,14 +12,14 @@ interface FileUploadProps {
 }
 
 const FileUpload = ({ endPoint, value, onChange }: FileUploadProps) => {
-  console.log(`value=***`, value);
+  // console.log(` FileUpload value=***`, value);
   const fileType = value?.split("-");
-  console.log(`fileType==`, fileType);
+  // console.log(`fileType==`, fileType);
   const [type, setType] = useState("");
-  console.log(`new file type`, type);
+  // console.log(`new file type`, type);
 
   if (value && type !== "pdf") {
-    console.log(`if block-`);
+    // console.log(`if block not pdf -`);
     return (
       <div className="relative size-20 ">
         <Image
@@ -73,13 +73,13 @@ const FileUpload = ({ endPoint, value, onChange }: FileUploadProps) => {
     <UploadDropzone
       endpoint={endPoint}
       onClientUploadComplete={(res) => {
-        console.log(`fileType====`, res?.[0])
+        // console.log(`ulpadthings response here******====`, res?.[0])
         let typee = res?.[0].type;
         let chunkType = typee.split("/");
-        console.log(`chunkType == `, chunkType);
+        // console.log(`chunkType == `, chunkType);
         setType(chunkType[1]);
-        // console.log(`uploadthing res == `, res?.[0]);
-        onChange(`${res?.[0].url}-${chunkType[1]}`);
+        // console.log(`uploadthing res == `, `${res?.[0]?.appUrl}`);
+        onChange(`${res?.[0]?.appUrl}`);
       }}
       onUploadError={(error: Error) => {
         console.log(`error=> `, error);

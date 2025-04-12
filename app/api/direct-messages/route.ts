@@ -7,7 +7,7 @@ export async function GET(req: Request) {
   try {
     // const data = await req.json();
     const { searchParams } = new URL(req.url);
-    console.log(`searchParams-`, searchParams);
+    // console.log(`searchParams-`, searchParams);
     const profile = await currentProfile();
     if (!profile) {
       return new NextResponse("Unauthorized", { status: 401 });
@@ -15,8 +15,8 @@ export async function GET(req: Request) {
 
     const cursor = searchParams.get("cursor");
     const conversationId = searchParams.get("conversationId");
-    console.log(`cursor--`, cursor);
-    console.log(`conversationId--`, conversationId);
+    // console.log(`cursor--`, cursor);
+    // console.log(`conversationId--`, conversationId);
 
     if (!conversationId) {
       return new NextResponse("conversationId is missing", { status: 400 });
@@ -25,7 +25,7 @@ export async function GET(req: Request) {
     let messages: DirectMessage[] = [];
 
     if (cursor && cursor !== "0" && cursor !== undefined) {
-      console.log(`inside if`);
+      // console.log(`inside if`);
       messages = await db.directMessage.findMany({
         take: Message_Batch,
         skip: 1,
@@ -48,7 +48,7 @@ export async function GET(req: Request) {
       });
     } else {
       console.log(`inside else part`);
-      console.log(conversationId);
+      // console.log(conversationId);
       messages = await db.directMessage.findMany({
         take: Message_Batch,
         where: {

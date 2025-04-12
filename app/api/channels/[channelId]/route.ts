@@ -8,7 +8,7 @@ export async function DELETE(
   req: Request,
   { params }: { params: Promise<{ channelId: string }> }
 ) {
-  console.log(`inside delete channel api****`);
+  // console.log(`inside delete channel api****`);
   try {
     const resolvedParams = await params;
     const { channelId } = resolvedParams;
@@ -16,7 +16,7 @@ export async function DELETE(
     const { searchParams } = new URL(req.url);
     const serverId = searchParams.get("serverId");
 
-    console.log(`id==***`, channelId);
+    // console.log(`id==***`, channelId);
 
     if (!profile) {
       return new NextResponse("Unauthorized", { status: 401 });
@@ -64,7 +64,7 @@ export async function PATCH(
   req: Request,
   { params }: { params: Promise<{ channelId: string }> }
 ) {
-  console.log(`inside patch channel api****`);
+  // console.log(`inside patch channel api****`);
   try {
     const resolvedParams = await params;
     const { channelId } = resolvedParams;
@@ -73,7 +73,7 @@ export async function PATCH(
     const { searchParams } = new URL(req.url);
     const serverId = searchParams.get("serverId");
 
-    console.log(`id==***`, channelId);
+    // console.log(`id==***`, channelId);
 
     if (!profile) {
       return new NextResponse("Unauthorized", { status: 401 });

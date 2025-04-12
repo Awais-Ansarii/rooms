@@ -7,7 +7,7 @@ export async function GET(req: Request) {
   try {
     // const data = await req.json();
     const { searchParams } = new URL(req.url);
-    console.log(`searchParams-`, searchParams);
+    // console.log(`searchParams-`, searchParams);
     const profile = await currentProfile();
     if (!profile) {
       return new NextResponse("Unauthorized", { status: 401 });
@@ -15,8 +15,8 @@ export async function GET(req: Request) {
 
     const cursor = searchParams.get("cursor");
     const channelId = searchParams.get("channelId");
-    console.log(`cursor--`, cursor);
-    console.log(`channelId--`, channelId);
+    // console.log(`cursor--`, cursor);
+    // console.log(`channelId--`, channelId);
 
     if (!channelId) {
       return new NextResponse("channelId is missing", { status: 400 });

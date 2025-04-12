@@ -91,6 +91,7 @@ const CreateServerModal = () => {
                   control={form.control}
                   name="imageUrl"
                   render={({ field }) => (
+                    // console.log(`field value`, field.value);
                     <FormItem>
                       <FormControl>
                         <FileUpload
